@@ -201,7 +201,7 @@ const getWishlist = async (req, res) => {
       .execute(countQueryString, [user_id]);
 
     const responseBody = {
-      message: "Succefully got wishlist",
+      message: "Succefully got WATCHGLISTEDS STATUS",
       list: result,
       count: countResult[0].count,
     };
