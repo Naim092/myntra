@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const conn = require("./database");
+const conn = require("./db");
 
 //GET ALL USERS
 // const getAllUser = async (req, res) => {
@@ -136,7 +136,7 @@ const getAllProducts = async (req, res) => {
 const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
-    // console.log(req.params);
+    console.log(req.params);
     if (!id) {
       res.status(400).send({
         message: "bad request",
@@ -301,18 +301,18 @@ const deleteWishlist = async (req, res) => {
   try {
     const { is_active } = req.body;
     const { user_id } = req.headers;
+   console.log(req.headers,req.body);
+    // if (!user_id) {
+    //   res.status(400).send({
+    //     message: "bad request",
+    //   });
+    // }
 
-    if (!user_id) {
-      res.status(400).send({
-        message: "bad request",
-      });
-    }
-
-    if (is_active !== 0) {
-      res.status(400).send({
-        message: "Bad request",
-      });
-    }
+    // if (is_active !== 0) {
+    //   res.status(400).send({
+    //     message: "Bad request",
+    //   });
+    // }
 
     let queryString = `update wishlist
       set is_active = ?
