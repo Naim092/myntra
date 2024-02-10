@@ -2,36 +2,36 @@ const express = require("express");
 const router = express.Router();
 const conn = require("./db");
 
-//GET ALL USERS
-// const getAllUser = async (req, res) => {
-//   try {
-//     const { limit, offset, sort } = req.query;
-//     if (!req.query) {
-//       res.status(400).send({
-//         message: "bad request",
-//       });
-//     }
-//     let queryString = `SELECT id,name,email,is_active,password from users order by id ${sort} LIMIT ? OFFSET ? `;
-//     const [result] = await conn.promise().execute(queryString, [limit, offset]);
+GET ALL USERS
+const getAllUser = async (req, res) => {
+  try {
+    const { limit, offset, sort } = req.query;
+    if (!req.query) {
+      res.status(400).send({
+        message: "bad request",
+      });
+    }
+    let queryString = `SELECT id,name,email,is_active,password from users order by id ${sort} LIMIT ? OFFSET ? `;
+    const [result] = await conn.promise().execute(queryString, [limit, offset]);
 
-//     let countQueryString = `SELECT count(id) as count from users `;
-//     const [countResult] = await conn.promise().execute(countQueryString);
+    let countQueryString = `SELECT count(id) as count from users `;
+    const [countResult] = await conn.promise().execute(countQueryString);
 
-//     const responseBody = {
-//       message: "Successfully got all users",
-//       list: result,
-//       count: countResult[0].count,
-//     };
-//     res.status(200).send(responseBody);
-//     // console.log(result);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).send({
-//       message: "Error while getting user",
-//       error,
-//     });
-//   }
-// };
+    const responseBody = {
+      message: "Successfully got all users",
+      list: result,
+      count: countResult[0].count,
+    };
+    res.status(200).send(responseBody);
+    // console.log(result);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error while getting user",
+      error,
+    });
+  }
+};
 
 //GET USER
 const getUserById = async (req, res) => {
