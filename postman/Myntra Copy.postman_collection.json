@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "80368625-24e9-4d82-8edc-be53397cc44c",
+		"name": "Myntra Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32362234"
+	},
+	"item": [
+		{
+			"name": "getuserbyid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/users/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getproducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/products/4?startprice =20&endprice=60&type=men",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"products",
+						"4"
+					],
+					"query": [
+						{
+							"key": "startprice ",
+							"value": "20"
+						},
+						{
+							"key": "endprice",
+							"value": "60"
+						},
+						{
+							"key": "type",
+							"value": "men"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postwishlist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":1,\r\n    \"product_id\":4,\r\n    \"is_active\" : 1,\r\n    \"quantity\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/wishlist",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getwishlist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/v1/wishlist",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletewishlist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_active\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/wishlist/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"wishlist",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
